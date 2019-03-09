@@ -1,0 +1,28 @@
+{
+  "name": "web_clock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bg.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "save": "^2.3.3",
+    "three": "^0.102.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/b0ho/web_clock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/b0ho/web_clock/issues"
+  },
+  "homepage": "https://github.com/b0ho/web_clock#readme"
+}
