@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>alpha</title>
+		<title>alpha <%=trans%>
+		</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<style>
@@ -103,12 +104,8 @@
 			<button id="grid">GRID</button>
 			
 		</div>
-		
 		<script>
-		
-	<ul>
-	<%=words%>
-	</ul>
+		console.log("s")
 			var table = [
 				"H", "Hydrogen", "1.00794", 2, 1,
 				"He", "Helium", "", 18, 1,
@@ -227,7 +224,7 @@
 				"Mc", "Moscovium", "(290)", 15, 7,
 				"Lv", "Livermorium", "(293)", 16, 7,
 				"Ts", "Tennessine", "(294)", 17, 7,
-				"Og", "Oganesson", "(294)", 18, 7
+				"Og", "Oganesson", "(294)", 25, 7
 			];
 			var camera, scene, renderer;
 			var controls;
