@@ -4,7 +4,7 @@ const IMG_NUMBER = 3;
 
 function paintImage(imgNumber) {
     const image = new Image();
-    image.src = `D:/OneDrive - Chonnam National University/workspace/React/clock/images/${imgNumber + 1}.jpg`;
+    image.src = `/images/${imgNumber + 1}.jpg`;
     image.classList.add("bgImage");
     body.appendChild(image);
 }
