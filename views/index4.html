@@ -26,9 +26,15 @@
 		<script type = "text/javascript">
 		$(function () {
 			$('#translate').click(function () {
-				$('.element .symbol').css({
-					'background-color': 'red'
-				});
+				var top = $('.element .symbol').css('top');
+				if(top != '20px')
+					$('.element .symbol').css({
+						'top': '20px'
+					});
+				else if(top == '20px')
+					$('.element .symbol').css({
+						'top': '40px'
+					});
 			});
 		})(jQuery);
 		</script>
