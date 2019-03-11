@@ -12,9 +12,28 @@
 		<script src="/three/build/three.js"></script>
 		<script src="/three/examples/js/controls/TrackballControls.js"></script>
 		<script src="/three/examples/js/renderers/CSS3DRenderer.js"></script>
+		<script type="text/javascript" src="http://www.shawnolson.net/scripts/public_smo_scripts.js"></script>
 
-		<div id="info"><a href="" target="_blank" rel="noopener">whale</a> on table.</div>
+		<div id="info">
+		<br>
+		<a href="" target="_blank" rel="noopener">whale</a> on table.
+		<br><br>
+		드래그하여 움직이고 확대해보세요!
+		</div>
+		
 		<div id="container"></div>
+
+{% comment %} 
+		<script>
+		function cssChange() {
+			var x = document.getElementById("symbol");
+			x.style.fontSize = "25px";           
+			x.style.color = "blue"; 
+		}
+		</script>	
+ {% endcomment %}
+
+
 		<div id="menu">
 			<button id="table">TABLE</button>
 			<button id="sphere">SPHERE</button>
@@ -23,10 +42,8 @@
 			
 		</div>
 		<script>
-		console.log(
-		 "<%=trans%>",
-		 " <%=words%>"
-		  )
+		console.log()
+		 
 			var table = [
 				"H", "Hydrogen", "1.00794", 2, 1,
 				"He", "Helium", "", 18, 1,
@@ -162,17 +179,20 @@
 					var element = document.createElement( 'div' );
 					element.className = 'element';
 					element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
-					var number = document.createElement( 'div' );
+					
+					/*var number = document.createElement( 'div' );
 					number.className = 'number';
 					number.textContent = ( i / 5 ) + 1;
-					element.appendChild( number );
+					element.appendChild( number );*/
+
 					var symbol = document.createElement( 'div' );
 					symbol.className = 'symbol';
 					symbol.textContent = table[ i ];
 					element.appendChild( symbol );
 					var details = document.createElement( 'div' );
 					details.className = 'details';
-					details.innerHTML = table[ i + 1 ] + '<br>' + table[ i + 2 ];
+					details.innerHTML = table[ i + 1 ];
+					//+ '<br>' + table[ i + 2 ];
 					element.appendChild( details );
 					var object = new THREE.CSS3DObject( element );
 					object.position.x = Math.random() * 4000 - 2000;
@@ -247,9 +267,18 @@
 					transform( targets.grid, 2000 );
 				}, false );
 				transform( targets.table, 2000 );
+
+				/*var button = document.getElementById( 'transbtn' );
+				button.addEventListener( 'click', function () {
+					changecss('.element.symbol','color','red')
+					console.log("ss")
+				}, false );*/
+
 				//
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
+			
+
 			function transform( targets, duration ) {
 				TWEEN.removeAll();
 				for ( var i = 0; i < objects.length; i ++ ) {
