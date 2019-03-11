@@ -13,26 +13,30 @@
 		<script src="/three/examples/js/controls/TrackballControls.js"></script>
 		<script src="/three/examples/js/renderers/CSS3DRenderer.js"></script>
 		<script type="text/javascript" src="http://www.shawnolson.net/scripts/public_smo_scripts.js"></script>
-
+		<script type="text/javascript" src="http://code.jquery.com/jquery-3.2.0.min.js" ></script>
 		<div id="info">
 		<br>
 		<a href="" target="_blank" rel="noopener">whale</a> on table.
 		<br><br>
 		드래그하여 움직이고 확대해보세요!
 		</div>
-		
 		<div id="container"></div>
 
-{% comment %} 
-		<script>
-		function cssChange() {
-			var x = document.getElementById("symbol");
-			x.style.fontSize = "25px";           
-			x.style.color = "blue"; 
-		}
-		</script>	
- {% endcomment %}
+		//버튼 클릭 이벤트
+		<script type = "text/javascript">
+		$(function () {
+			$('#translate').click(function () {
+				$('.element .symbol').css({
+					'background-color': 'red'
+				});
+			});
+		})(jQuery);
+		</script>
 
+		<div id="setting">
+			<button id="translate">뜻 보기</button>
+			<button id="move">움직이기</button>
+		</div>
 
 		<div id="menu">
 			<button id="table">TABLE</button>
@@ -45,7 +49,7 @@
 		console.log()
 		 
 			var table = [
-				"H", "Hydrogen", "1.00794", 2, 1,
+				"uninterested", "əniˈntrəstəd", "1.00794", 2, 1,
 				"He", "Helium", "", 3, 1,
 				"Li", "Lithium", "6.941", 4, 1,
 				"Be", "Beryllium", "9.012182", 5, 1,
