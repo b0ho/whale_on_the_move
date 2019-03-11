@@ -201,119 +201,35 @@
 				console.log(test[i])
 			}
 
-			var whale = [
-				"uninterested", "əniˈntrəstəd", "1.00794", 2, 1,
-				"He", "Helium", "", 3, 1,
-				"Li", "Lithium", "6.941", 4, 1,
-				"Be", "Beryllium", "9.012182", 5, 1,
-				"B", "Boron", "10.811",  6,1,
-				"C", "Carbon", "12.0107", 7,1, 
-				"N", "Nitrogen", "14.0067", 8,1,
-				"H", "Hydrogen", "1.00794", 3, 2,
-				"He", "Helium", "", 4, 2,
-				"Li", "Lithium", "6.941", 5, 2,
-				"Be", "Beryllium", "9.012182", 6, 2,
-				"B", "Boron", "10.811",  7,2,
-				"C", "Carbon", "12.0107", 4,3, 
-				"N", "Nitrogen", "14.0067", 5,3, 
-				"O", "Oxygen", "15.9994",6, 3, 
-				"F", "Fluorine", "18.9984032",  11,3,
-				"Ne", "Neon", "20.1797",  5,4,
-				"Na", "Sodium", "22.98976...", 10,4, 
-				"Mg", "Magnesium", "24.305", 11,4, 
-				"Al", "Aluminium", "26.9815386",  9,5,
-				"Si", "Silicon", "28.0855", 10,5,
-				"P", "Phosphorus", "30.973762",  11,5,
-				"S", "Sulfur", "32.065",  2,6,
-				"Cl", "Chlorine", "35.453",  3,6,
-				"Ar", "Argon", "39.948", 4,6, 
-				"K", "Potassium", "39.948", 5,6, 
-				"Ca", "Calcium", "40.078", 6,6,
-				"Sc", "Scandium", "44.955912", 7,6, 
-				"Ti", "Titanium", "47.867", 8,6,
-				"V", "Vanadium", "50.9415", 9,6, 
-				"Cr", "Chromium", "51.9961", 10,6, 
-				"Mn", "Manganese", "54.938045",11, 6, 
-				"Fe", "Iron", "55.845",  1,7,
-				"Co", "Cobalt", "58.933195", 2,7, 
-				"Ni", "Nickel", "58.6934", 3,7,
-				"Cu", "Copper", "63.546",  4,7,
-				"Zn", "Zinc", "65.38",5, 7, 
-				"Ga", "Gallium", "69.723", 6, 7,
-				"Ge", "Germanium", "72.63",  7,7,
-				"As", "Arsenic", "74.9216",  8,7,
-				"Se", "Selenium", "78.96", 9,7, 
-			"Se", "Selenium", "78.96", 10, 7, 
-			"Se", "Selenium", "78.96", 1,8,
-			"Se", "Selenium", "78.96", 2,8,
-			"Se", "Selenium", "78.96", 4,8,
-			"Se", "Selenium", "78.96", 5,8,
-			"Se", "Selenium", "78.96", 6,8,
-			"Se", "Selenium", "78.96", 7,8,
-			"Se", "Selenium", "78.96", 8,8,
-			"Se", "Selenium", "78.96", 9,8,
-			"Se", "Selenium", "78.96", 10,8,
-			"Se", "Selenium", "78.96", 1,9,
-			"Se", "Selenium", "78.96", 2,9,
-			"Se", "Selenium", "78.96", 3,9,
-			"Se", "Selenium", "78.96", 4,9,
-			"Se", "Selenium", "78.96", 5,9,
-			"Se", "Selenium", "78.96", 6,9,
-			"Se", "Selenium", "78.96", 7,9,
-			"Se", "Selenium", "78.96", 8,9,
-			"Se", "Selenium", "78.96", 9,9,
-			"Se", "Selenium", "78.96", 1,10,
-			"Se", "Selenium", "78.96", 2,10,
-			"Se", "Selenium", "78.96", 3,10,
-			"Se", "Selenium", "78.96", 4,10,
-			"Se", "Selenium", "78.96", 5,10,
-			"Se", "Selenium", "78.96", 6,10,
-			"Se", "Selenium", "78.96", 7,10,
-			"Se", "Selenium", "78.96", 8,10,
-			"Se", "Selenium", "78.96", 9,10,
-			"Se", "Selenium", "78.96", 2,11,
-			"Se", "Selenium", "78.96", 3,11,
-			"Se", "Selenium", "78.96", 4,11,
-			"Se", "Selenium", "78.96", 5,11,
-			"Se", "Selenium", "78.96", 6,11,
-			"Se", "Selenium", "78.96", 7,11,
-			"Se", "Selenium", "78.96", 8,11,
-			"Se", "Selenium", "78.96", 3,12,
-			"Se", "Selenium", "78.96", 4,12,
-			"Se", "Selenium", "78.96", 5,12,
-			"Se", "Selenium", "78.96", 6,12,
-			"Se", "Selenium", "78.96", 7,12,
-			"Se", "Selenium", "78.96", 8,12,
-			];
 			var camera, scene, renderer;
 			var controls;
 			var objects = [];
-			var targets = { whale: [], sphere: [], helix: [], grid: [] };
+			var targets = { test: [], sphere: [], helix: [], grid: [] };
 			init();
 			animate();
 			function init() {
 				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 12000 );
 				camera.position.z = 4000;
 				scene = new THREE.Scene();
-				// whale
-				for ( var i = 0; i < whale.length; i += 5 ) {
+				// test
+				for ( var i = 0; i < test.length; i++ ) {
 					var element = document.createElement( 'div' );
 					element.className = 'element';
 					element.style.backgroundColor = 'rgba(37,147,249,' + ( Math.random() * 0.9 + 0.5 ) + ')';
 					
 					var	alpha = document.createElement( 'div' );
 					alpha.className = 'alpha';
-					alpha.textContent = whale[ i ];
+					alpha.textContent = test[i][ 0 ];
 					element.appendChild( alpha );
 
 					var phonetic = document.createElement( 'div' );
 					phonetic.className = 'phonetic';
-					phonetic.innerHTML = whale[ i + 1 ];
+					phonetic.innerHTML = test[i][ 1 ];
 					element.appendChild( phonetic );
 
 					var hangeul = document.createElement( 'div' );
 					hangeul.className = 'hangeul';
-					hangeul.innerHTML = whale[ i + 2 ];
+					hangeul.innerHTML = test[i][ 2 ];
 					element.appendChild( hangeul );
 
 					var object = new THREE.CSS3DObject( element );
@@ -326,9 +242,9 @@
 					var object = new THREE.Object3D();
 					
 					//여기서 최초 위치와 박스들의 간격 설정
-					object.position.x = ( whale[ i + 3 ] * 380 ) - 2060;
-					object.position.y = - ( whale[ i + 4 ] * 190 ) + 1250;
-					targets.whale.push( object );
+					object.position.x = ( test[i][ 3 ] * 380 ) - 2060;
+					object.position.y = - ( test[i][ 4 ] * 190 ) + 1250;
+					targets.test.push( object );
 				}
 
 				// sphere
@@ -381,7 +297,7 @@
 				controls.addEventListener( 'change', render );
 				var button = document.getElementById( 'whale' );
 				button.addEventListener( 'click', function () {
-					transform( targets.whale, 2000 );
+					transform( targets.test, 2000 );
 				}, false );
 				var button = document.getElementById( 'sphere' );
 				button.addEventListener( 'click', function () {
@@ -395,7 +311,7 @@
 				button.addEventListener( 'click', function () {
 					transform( targets.grid, 2000 );
 				}, false );
-				transform( targets.whale, 2000 );
+				transform( targets.test, 2000 );
 
 				//
 				window.addEventListener( 'resize', onWindowResize, false );
