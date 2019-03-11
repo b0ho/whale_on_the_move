@@ -42,7 +42,7 @@ a {
 }
 /* 여기에서 박스들의 크기를 결정 */
 .element {
-  width: 200px;
+  width: 350px;
   height: 160px;
   box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.5);
   border: 1px solid rgba(127, 255, 255, 0.25);
@@ -88,7 +88,7 @@ a {
   display: none;
 }
 
-.element:hover > .details {
+.element:hover .details {
   display: inline;
 }
 
@@ -104,8 +104,8 @@ button:hover {
   background-color: rgba(0, 255, 255, 0.5);
 }
 
-button:hover > #table {
-  background-color: white;
+button:hover, .details {
+  display: inline;
 }
 #grid:hover {
   background-color: white;
