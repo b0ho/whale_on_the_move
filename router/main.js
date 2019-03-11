@@ -1,35 +1,17 @@
-var randomWords = require("random-words");
 
-//랜덤 단어를 생성
-words = randomWords(5, { min: 3, max: 10 });
-words = words.join(" ");
-words = words.toString();
+var XLSX = require("xlsx");
 
-//단어들을 번역
-var client_id = "MqIs5qaBHMxGw2g8roJ5"; //개발자센터에서 발급받은 Client ID
-var client_secret = "HEsxkBPZoY"; //개발자센터에서 발급받은 Client Secret
-var query = words;
-var api_url = "https://openapi.naver.com/v1/language/translate";
-var request = require("request");
-var options = {
-  url: api_url,
-  form: { source: "en", target: "ko", text: query },
-  headers: {
-    "X-Naver-Client-Id": client_id,
-    "X-Naver-Client-Secret": client_secret
-  }
-};
+var workbook = XLSX.readFile("./asset/wordbook.xlsx");
+var firstSheetName = workbook.SheetNames[0];
+var firstSheet = workbook.Sheets[firstSheetName];
+var set = XLSX.utils.sheet_to_json(firstSheet);
+var alphaset = JSON.stringify(set);
 
 module.exports = function(app, fs) {
   app.get("/alpha", function(req, res) {
-    //request.post(options, function(error, response, body) {
-    //var alpha = JSON.parse(body).message.result.translatedText;
-    //단어와 해석을 보냄
     res.render("index4.html", {
-      words: words
-      //trans: alpha
+      alphaset: set
     });
-    //});
   });
 
   app.get("/", function(req, res) {

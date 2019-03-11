@@ -14,14 +14,21 @@
 		<script src="/three/examples/js/renderers/CSS3DRenderer.js"></script>
 		<script type="text/javascript" src="http://www.shawnolson.net/scripts/public_smo_scripts.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-3.2.0.min.js" ></script>
+
 		<div id="info">
 		<br>
 		<a href="">whale</a> on table
 		<br><br>
 		움직이고 회전하고 확대해보세요!
-		</div>
-		<div id="container"></div>
+		<%=
+		
+		JSON.stringify(alphaset)
+		
 
+		%>
+		</div>
+		
+		<div id="container"></div>
 		<div id="setting">
 			<button id="render">
 				<span class="t1">번역하기</span>
@@ -53,9 +60,9 @@
 		</div>
 
 		<script>	
-
+			console.log()
 			$(function () {
-				$('#translate').click(function () {
+				$('#render').click(function () {
 					var top = $('.element .alpha').css('top');
 					if(top != '20px') {
 						$('.element .alpha').css('top', '20px');
@@ -68,11 +75,11 @@
 				})
 			})
 
-			$(function () {
-				$(document).ready(function() {
-					$('button').css('backgroundColor', 'rgba(37,147,249,' + ( Math.random() * 0.9 + 0.5 ) + ')');
-				})
-			})
+			$(document).ready(function() {
+				$('button').each(function () {
+					$(this).css("background-color", 'rgba(37,147,249,' + ( Math.random() * 0.9 + 0.5 ) + ')');
+				});
+			});
 
 			var whale = [
 				"uninterested", "əniˈntrəstəd", "1.00794", 2, 1,
