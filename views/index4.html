@@ -26,17 +26,17 @@
 		<script type = "text/javascript">
 		$(function () {
 			$('#translate').click(function () {
-				var top = $('.element .symbol').css('top');
-				if(top != '20px')
-					$('.element .symbol').css({
-						'top': '20px'
-					});
-				else if(top == '20px')
-					$('.element .symbol').css({
-						'top': '40px'
-					});
-			});
-		})(jQuery);
+				var top = $('.element .alpha').css('top');
+				if(top != '20px') {
+					$('.element .alpha').css('top', '20px');
+					$('.element .hangeul').css('display', 'inline');
+				}
+				else if(top == '20px'){
+					$('.element .alpha').css('top', '40px'),
+					$('.element .hangeul').css('display', 'none');
+				}
+			})
+		})
 		</script>
 
 		<div id="setting">
@@ -159,15 +159,21 @@
 					number.textContent = ( i / 5 ) + 1;
 					element.appendChild( number );*/
 
-					var symbol = document.createElement( 'div' );
-					symbol.className = 'symbol';
-					symbol.textContent = table[ i ];
-					element.appendChild( symbol );
-					var details = document.createElement( 'div' );
-					details.className = 'details';
-					details.innerHTML = table[ i + 1 ];
-					//+ '<br>' + table[ i + 2 ];
-					element.appendChild( details );
+					var	alpha = document.createElement( 'div' );
+					alpha.className = 'alpha';
+					alpha.textContent = table[ i ];
+					element.appendChild( alpha );
+
+					var phonetic = document.createElement( 'div' );
+					phonetic.className = 'phonetic';
+					phonetic.innerHTML = table[ i + 1 ];
+					element.appendChild( phonetic );
+
+					var hangeul = document.createElement( 'div' );
+					hangeul.className = 'hangeul';
+					hangeul.innerHTML = table[ i + 2 ];
+					element.appendChild( hangeul );
+
 					var object = new THREE.CSS3DObject( element );
 					object.position.x = Math.random() * 4000 - 2000;
 					object.position.y = Math.random() * 4000 - 2000;
@@ -248,12 +254,6 @@
 					transform( targets.grid, 2000 );
 				}, false );
 				transform( targets.table, 2000 );
-
-				/*var button = document.getElementById( 'transbtn' );
-				button.addEventListener( 'click', function () {
-					changecss('.element.symbol','color','red')
-					console.log("ss")
-				}, false );*/
 
 				//
 				window.addEventListener( 'resize', onWindowResize, false );
