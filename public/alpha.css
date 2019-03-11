@@ -2,43 +2,26 @@ html,
 body {
   height: 100%;
 }
+
 body {
-  background-color: #000000;
+  background-color: white;
   margin: 0;
   font-family: Helvetica, sans-serif;
   overflow: hidden;
 }
+
 a {
-  color: #ffffff;
+  color: rgba(1, 100, 192, 0.75);
 }
+
 #info {
   position: absolute;
   width: 100%;
-  color: #ffffff;
-  padding: 5px;
-  font-family: Monospace;
-  font-size: 13px;
-  font-weight: bold;
+  color: rgba(15, 121, 221, 0.75);
+  padding: 10px;
+  font-size: 25px;
   text-align: center;
   z-index: 1;
-}
-
-#setting {
-  position: absolute;
-  bottom: 50px;
-  width: 100%;
-  text-align: center;
-}
-
-#translate {
-  font-size: 30px;
-}
-
-#menu {
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  text-align: center;
 }
 
 /* 여기에서 박스들의 크기를 결정 */
@@ -50,20 +33,7 @@ a {
   text-align: center;
   cursor: default;
 }
-/* 여기에서 작은 팝업? 으로 뜻을 보여줄것임
-아니면 element 자체를 버튼으로바꾸고 이벤트 처리? */
-.element:hover {
-  box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.75);
-  border: 1px solid rgba(127, 255, 255, 0.75);
-}
 
-.element .number {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 12px;
-  color: rgba(127, 255, 255, 0.75);
-}
 .element .alpha {
   position: absolute;
   top: 40px;
@@ -72,11 +42,17 @@ a {
   font-size: 50px;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.75);
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.95);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.95);
 }
-.element:hover > .alpha {
-  font-size: 62px;
-  top: 20px;
+
+.element .phonetic {
+  position: absolute;
+  bottom: 20px;
+  left: 0px;
+  right: 0px;
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.75);
+  display: none;
 }
 
 .element .hangeul {
@@ -85,36 +61,99 @@ a {
   left: 0px;
   right: 0px;
   font-size: 40px;
-  color: rgba(127, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.75);
   display: none;
 }
 
-.element:hover .hangeul {
+.element:hover {
+  border: 1px solid rgba(28, 3, 253, 0.75);
+}
+
+.element:hover > .alpha {
+  top: 20px;
+}
+
+.element:hover > .hangeul {
+  display: none;
+}
+
+.element:hover > .phonetic {
   display: inline;
 }
 
 button {
-  color: rgba(127, 255, 255, 0.75);
+  width: 80px;
+  height: 30px;
+  color: rgba(255, 255, 255, 0.75);
   background: transparent;
-  outline: 1px solid rgba(127, 255, 255, 0.75);
-  border: 0px;
-  padding: 5px 10px;
+  outline: 1px solid rgba(255, 255, 255, 0.75);
+  border: 10px;
   cursor: pointer;
-}
-button:hover {
-  background-color: rgba(0, 255, 255, 0.5);
+  font-style: bold;
+  margin-left :8px;
 }
 
-button:hover, .hangeul {
-  display: inline;
+#setting {
+  position: absolute;
+  bottom: 90px;
+  width: 100%;
+  text-align: center;
 }
-#grid:hover > .element + div +  .hangeul {
-  background-color: white;
+
+#menu{
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  text-align: center;
 }
-#grid:hover {
-  background-color: white;
+
+button:hover {
+  background-color: #86C3FC;
 }
+
 button:active {
-  color: #000000;
-  background-color: rgba(0, 255, 255, 0.75);
+  color: rgba(24, 27, 236, 0.75);
+  background-color: #d5e1f8;
+}
+
+#setting #render:hover .t1 {
+  display: none;
+}
+#setting #render:hover .t2:before {
+  content: "RENDER";
+}
+
+#setting > #move:hover .m1 {
+  display: none;
+}
+#setting > #move:hover .m2:before {
+  content: "MOVE";
+}
+
+#menu > #whale:hover .w1 {
+  display: none;
+}
+#menu > #whale:hover .w2:before {
+  content: "WHALE";
+}
+
+#menu > #sphere:hover .s1 {
+  display: none;
+}
+#menu > #sphere:hover .s2:before {
+  content: "SPHERE";
+}
+
+#menu > #helix:hover .h1 {
+  display: none;
+}
+#menu > #helix:hover .h2:before {
+  content: "HELIX";
+}
+
+#menu > #grid:hover .g1 {
+  display: none;
+}
+#menu > #grid:hover .g2:before {
+  content: "GIRD";
 }
