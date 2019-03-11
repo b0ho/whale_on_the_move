@@ -68,7 +68,6 @@
 					}
 				})
 			})
-
 			//번역하기 버튼 누르면 단어의 뜻을 박스에 보여줌 - 켜고 끔
 			$(function () {
 				$('#translate').click(function () {
@@ -83,7 +82,6 @@
 					}
 				})
 			})
-
 			//박스위에 마우스를 올리면 뜻을 보여줌
 			$(function () {
 				$('.element').hover(function () {
@@ -108,7 +106,6 @@
 					$(this).css("background-color", 'rgba(37,147,249,' + ( Math.random() * 0.9 + 0.5 ) + ')');
 				});
 			});
-
 			//배열을 섞는 함수
 			function shuffle(a) {
 				var j, x, i;
@@ -119,14 +116,11 @@
 					a[j] = x;
 				}
 			}
-
 			// 라우터에서 넘겨받은 파라미터를 각 각의 배열로 파싱
 			var alph = "<%=alph%>";
 			var alph_arr = alph.split(",");
-
 			var phon = "<%=phon%>";
 			var phon_arr = phon.split(",");
-
 			var han = "<%=han%>";
 			var han_arr = han.split(",");
 			
@@ -140,10 +134,8 @@
 				word_arr.push(arr);
 				//console.log(word_arr[i])
 			}
-
 			// 단어장 배열을 섞어줌
 			shuffle(word_arr);
-
 			// 고래 모양을 위한 위치 값
 			// 이를 토대로 매번 새로운 배열생성
 			var words = [
@@ -230,18 +222,17 @@
 			[7,12],
 			[8,12]
 			]
-
 			// 단어장과 고래 배열을 하나로 합침
 			for (var i in words) {
 				words[i] = word_arr[i].concat(words[i])
 				//console.log(words[i])
 			}
-
 			// 여기부터 3d 모델링 시작
 			var camera, scene, renderer;
 			var controls;
 			var objects = [];
 			var targets = { whale: [], sphere: [], helix: [], grid: [] };
+			var start = Date.now();
 			init();
 			animate();
 
@@ -249,6 +240,7 @@
 				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 12000 );
 				camera.position.z = 4000;
 				scene = new THREE.Scene();
+
 				// whale
 				for ( var i = 0; i < words.length; i++ ) {
 					var element = document.createElement( 'div' );
@@ -259,17 +251,14 @@
 					alpha.className = 'alpha';
 					alpha.textContent = words[i][ 0 ];
 					element.appendChild( alpha );
-
 					var phonetic = document.createElement( 'div' );
 					phonetic.className = 'phonetic';
 					phonetic.innerHTML = words[i][ 1 ];
 					element.appendChild( phonetic );
-
 					var hangeul = document.createElement( 'div' );
 					hangeul.className = 'hangeul';
 					hangeul.innerHTML = words[i][ 2 ];
 					element.appendChild( hangeul );
-
 					var object = new THREE.CSS3DObject( element );
 					object.position.x = Math.random() * 4000 - 2000;
 					object.position.y = Math.random() * 4000 - 2000;
@@ -280,9 +269,9 @@
 					
 					//여기서 최초 위치와 박스들의 간격 설정
 					object.position.x = ( words[i][ 3 ] * 380 ) - 2060;
+					object.position.y = - ( words[i][ 4 ] * 190 ) + 1250;
 					targets.whale.push( object );
 				}
-
 				// sphere
 				var vector = new THREE.Vector3();
 				for ( var i = 0, l = objects.length; i < l; i ++ ) {
@@ -295,7 +284,6 @@
 					object.lookAt( vector );
 					targets.sphere.push( object );
 				}
-
 				// helix
 				var vector = new THREE.Vector3();
 				for ( var i = 0, l = objects.length; i < l; i ++ ) {
@@ -310,7 +298,6 @@
 					object.lookAt( vector );
 					targets.helix.push( object );
 				}
-
 				// grid
 				for ( var i = 0; i < objects.length; i ++ ) {
 					var object = new THREE.Object3D();
@@ -320,22 +307,18 @@
 					object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 2000;
 					targets.grid.push( object );
 				}
-
 				renderer = new THREE.CSS3DRenderer();
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.getElementById( 'container' ).appendChild( renderer.domElement );
-
 				controls = new THREE.TrackballControls( camera, renderer.domElement );
 				controls.rotateSpeed = 0.5;
 				controls.minDistance = 500;
 				controls.maxDistance = 6000;
 				controls.addEventListener( 'change', render );
-
 				var button = document.getElementById( 'whale' );
 				button.addEventListener( 'click', function () {
 					transform( targets.whale, 2000 );
 				}, false );
-
 				var button = document.getElementById( 'sphere' );
 				button.addEventListener( 'click', function () {
 					transform( targets.sphere, 2000 );
@@ -350,7 +333,6 @@
 				button.addEventListener( 'click', function () {
 					transform( targets.grid, 2000 );
 				}, false );
-
 				transform( targets.whale, 2000 );
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
@@ -360,38 +342,36 @@
 				for ( var i = 0; i < objects.length; i ++ ) {
 					var object = objects[ i ];
 					var target = targets[ i ];
-
 					new TWEEN.Tween( object.position )
 						.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
 						.easing( TWEEN.Easing.Exponential.InOut )
 						.start();
-
 					new TWEEN.Tween( object.rotation )
 						.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
 						.easing( TWEEN.Easing.Exponential.InOut )
 						.start();
 				}
-
 				new TWEEN.Tween( this )
 					.to( {}, duration * 2 )
 					.onUpdate( render )
 					.start();
 			}
-
 			function onWindowResize() {
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				render();
 			}
-
 			function animate() {
 				requestAnimationFrame( animate );
 				TWEEN.update();
 				controls.update();
 			}
-
 			function render() {
+				var timer = Date.now() - start;
+				//object.position.y = Math.sin( timer * 0.002 ) * 150;
+				//object.rotation.x = timer * 0.0003;
+				//object.rotation.z = timer * 0.0002;
 				renderer.render( scene, camera );
 			}
 		</script>
