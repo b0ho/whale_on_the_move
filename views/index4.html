@@ -4,7 +4,7 @@
 		<title>whale on whale</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		 <link rel="stylesheet" href="/public/alpha.css">
+		<link rel="stylesheet" href="/public/alpha.css">
    
 	</head>
 	<body>
@@ -20,14 +20,8 @@
 		<a href="">whale</a> on table
 		<br><br>
 		움직이고 회전하고 확대해보세요!
-		<%=
 		
-		JSON.stringify(alphaset)
-		
-
-		%>
 		</div>
-		
 		<div id="container"></div>
 		<div id="setting">
 			<button id="render">
@@ -60,7 +54,16 @@
 		</div>
 
 		<script>	
-			console.log()
+
+			var alph = "<%=alph%>";
+			var alph_arr = alph.split(",");
+
+			var phon = "<%=phon%>";
+			var phon_arr = phon.split(",");
+
+			var han = "<%=han%>";
+			var han_arr = han.split(",");
+
 			$(function () {
 				$('#render').click(function () {
 					var top = $('.element .alpha').css('top');
