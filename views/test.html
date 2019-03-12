@@ -10,28 +10,9 @@
 				margin: 0px;
 				overflow: hidden;
 			}
-			a {
-				color:#0078ff;
-			}
-			#info {
-				position: absolute;
-				top: 10px; width: 100%;
-				color: #ffffff;
-				padding: 5px;
-				font-family: Monospace;
-				font-size: 13px;
-				text-align: center;
-				z-index:100;
-			}
 		</style>
 	</head>
 	<body>
-
-		<div id="info">
-			<a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> - software renderer<br />
-			drag to change the point of view
-		</div>
-
 		<script src="/three/build/three.js"></script>
 		<script src="/three/examples/js/geometries/hilbert3D.js"></script>
 		<script src="/three/examples/js/controls/TrackballControls.js"></script>
@@ -57,14 +38,7 @@
 				// Torus
 				var torusGeometry = new THREE.TorusKnotBufferGeometry( 150, 10 );
 				torusGeometry = torusGeometry.toNonIndexed();
-				var colors = [];
-				var color = new THREE.Color();
-				for ( var i = 0; i < torusGeometry.attributes.position.count; i ++ ) {
-					color.setHex( Math.random() * 0xffffff );
-					colors.push( color.r, color.g, color.b );
-				}
-				torusGeometry.addAttribute( 'color', new THREE.Float32BufferAttribute( colors, 3 ) );
-				torus = new THREE.Mesh( torusGeometry, new THREE.MeshBasicMaterial( { color: 0x0000ff, vertexColors: THREE.VertexColors } ) );
+				torus = new THREE.Mesh( torusGeometry );
 				scene.add( torus );
 				
 				//
@@ -92,8 +66,6 @@
 			function render() {
 				var timer = Date.now() - start;
 				torus.position.y = Math.sin( timer * 0.002 ) * 150;
-				torus.rotation.x = timer * 0.0003;
-				torus.rotation.z = timer * 0.0002;
 				controls.update();
 				renderer.render( scene, camera );
 			}

@@ -31,5 +31,14 @@ module.exports = function(app, fs) {
       han: han
     });
   });
+
+  app.get("/test2", function(req, res) {
+    res.render("test2.html", {
+      alph: alph,
+      phon: phon,
+      han: han
+    });
+  });
+
 };
 
