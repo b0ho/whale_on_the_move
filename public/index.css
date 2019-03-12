@@ -1,3 +1,26 @@
+
+@font-face {
+  font-family: NanumSquareWeb;
+  src: local(NanumSquareR),
+       local(NanumSquare),
+       url(NanumSquareR.eot?#iefix) format('embedded-opentype'),
+       url(NanumSquareR.woff) format('woff'),
+       url(NanumSquareR.ttf) format('truetype');
+  font-style: normal;
+  font-weight: normal;
+  unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+  font-family: 'NotoKrB';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Noto Sans Bold'), local('NotoSans-Bold'), url(/fonts/NotoSans-Bold.eot);
+  src: url(/fonts/NotoSans-Bold.eot?#iefix) format('embedded-opentype'),
+  url(/fonts/NotoSans-Bold.woff2) format('woff2'),
+  url(/fonts/NotoSans-Bold.woff) format('woff');
+  }
+
 html,
 body {
   height: 100%;
@@ -50,26 +73,31 @@ a {
   font-size: 50px;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.75);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.95);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.95);
 }
 
 .element .phonetic {
   position: absolute;
-  bottom: 20px;
+  bottom: 15px;
   left: 0px;
   right: 0px;
-  font-size: 40px;
+  font-size: 50px;
+  font-weight: bold;
   color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.95);
   display: none;
 }
 
 .element .hangeul {
   position: absolute;
-  bottom: 20px;
+  bottom: 15px;
   left: 0px;
   right: 0px;
-  font-size: 40px;
+  font-size: 50px;
+  font-family: "Nanum Gothic";
+  font-weight: bold;
   color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.95);
   display: none;
 }
 
@@ -81,9 +109,10 @@ button {
   padding: 0;
   border: 0;
   cursor: pointer;
-  font-style: bold;
+  font-weight: bold;
   font-size: 15px;
   margin-left: 8px;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.95);
 }
 
 #setting {

@@ -4,6 +4,8 @@
 		<title>whale on the move</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="shortcut icon" href="/asset/img/favicon.ico">
+		<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
 		<link rel="stylesheet" href="/public/index.css">
 	</head>
 
@@ -53,17 +55,17 @@
 				<span class="g2"></span>
 			</button>
 		</div>
-		
+
 		<script>	
 			//발음기호 버튼 누르면 발음기호를 박스에 보여줌 - 켜고 끔
 			$(function () {
 				$('#pronounce').click(function () {
-					var top = $('.element .alpha').css('top');
-					if(top != '20px') {
-						$('.element .alpha').css('top', '20px');
+					if($('.element .phonetic').css('display')=='none') {
+						$('.element .alpha').css('top', '15px');
+						$('.element .hangeul').css('display', 'none');
 						$('.element .phonetic').css('display', 'inline');
 					}
-					else if(top == '20px'){
+					else{
 						$('.element .alpha').css('top', '40px'),
 						$('.element .phonetic').css('display', 'none');
 					}
@@ -73,12 +75,12 @@
 			//번역하기 버튼 누르면 단어의 뜻을 박스에 보여줌 - 켜고 끔
 			$(function () {
 				$('#translate').click(function () {
-					var top = $('.element .alpha').css('top');
-					if(top != '20px') {
-						$('.element .alpha').css('top', '20px');
+					if($('.element .hangeul').css('display')=='none') {
+						$('.element .alpha').css('top', '15px');
+						$('.element .phonetic').css('display', 'none');
 						$('.element .hangeul').css('display', 'inline');
 					}
-					else if(top == '20px'){
+					else{
 						$('.element .alpha').css('top', '40px'),
 						$('.element .hangeul').css('display', 'none');
 					}
@@ -89,7 +91,7 @@
 			$(function () {
 				$('.element').hover(function () {
 					$('.element', this).css('border', '1px solid rgba(28, 3, 253, 0.75)');
-					$('.alpha', this).css('top', '20px');
+					$('.alpha', this).css('top', '15px');
 					$('.hangeul', this).css('display', 'inline');
 				}, function() {
 					$(this).css('border', '1px solid rgba(28, 3, 253, 0.75)');
@@ -103,6 +105,11 @@
 				$('button').each(function () {
 					$(this).css("background-color", 'rgba(37,147,249,' + ( Math.random() * 0.9 + 0.5 ) + ')');
 				});
+			});
+
+			//
+			$(document).ready(function() {
+				//$('body').css('background-image', 'url(/asset/img/bg.jpg)');
 			});
 
 			//배열을 섞는 함수
@@ -282,10 +289,9 @@
 				$('#move').click(function () {
 					if($('body').css('background-image') == 'none') {
 						$('body').css('background-image', 'url(/asset/img/bg.jpg)');
-						$('.element .alpha').css('top', '20px');
 						$('button').css('display', 'none');
 						$('#text').css('display', 'none');
-						start = setInterval(move_on, 100);
+						start = setInterval(move_on, 150);
 					}
 					else if($('body').css('background-image') != 'none') {
 						$('body').css('background-image', 'none');
@@ -296,6 +302,7 @@
 				})
 			})
 
+			//고래를 움직임
 			function move_on() {
 				var timer = Date.now() - start;
 				var tmp = Math.sin( timer * 0.001 ) * 40;
