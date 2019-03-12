@@ -1,8 +1,8 @@
 {
-  "name": "web_clock",
+  "name": "whale_on_the_move",
   "version": "1.0.0",
   "description": "",
-  "main": "bg.js",
+  "main": "index.js",
   "dependencies": {
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
@@ -16,16 +16,21 @@
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines":{
+    "node": "^10.15.0",
+    "npm": "^6.4.1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/b0ho/web_clock.git"
+    "url": "git+https://github.com/b0ho/whale_on_the_move.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/b0ho/web_clock/issues"
+    "url": "https://github.com/b0ho/whale_on_the_move/issues"
   },
-  "homepage": "https://github.com/b0ho/web_clock#readme"
+  "homepage": "https://github.com/b0ho/whale_on_the_move#readme"
 }

@@ -1,5 +1,6 @@
 var express = require("express");
 var app = express("./router/main");
+var PORT = process.env.PORT;
 var router = require("./router/main")(app);
 
 app.use(express.static("node_modules"));
@@ -12,6 +13,6 @@ app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
 
-var server = app.listen(3000, function() {
+var server = app.listen(PORT, function() {
   console.log("http://localhost:3000");
 });
