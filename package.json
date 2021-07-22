@@ -12,7 +12,7 @@
     "request": "^2.88.0",
     "save": "^2.3.3",
     "three": "^0.102.1",
-    "xlsx": "^0.14.1",
+    "xlsx": "^0.17.0",
     "lodash": ">=4.17.19"
   },
   "devDependencies": {},
